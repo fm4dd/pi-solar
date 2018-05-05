@@ -489,7 +489,7 @@ void write_html(char *file, struct fields *list){
    float ibat = ptr->base;
    float pbat = vbat * ibat;
    fprintf(html, "<td class=\"sensordata\">Power Balance +/-:");
-   fprintf(html, "<span class=\"sensorvalue\">%.2f&thinsp;W</span></td>\n", pbat);
+   fprintf(html, "<span class=\"sensorvalue\">%+.2f&thinsp;W</span></td>\n", pbat);
    fprintf(html, "<td class=\"sensorspace\"></td>\n");
    ptr = list+4;  // Load Current
    float pload = vbat * ptr->base;
