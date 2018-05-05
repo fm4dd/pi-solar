@@ -6,8 +6,6 @@ This folder contains documentation for the physical build  of a 40W mini solar p
 
 Solar power generation comes from four 10W modules, Chinese-build panels from Autumn Technology, model number AT-MA10A.
 
-<img align="right" src="..\images\pi-solar testpanel 10w.jpg" height="225px" width="300px"> 
-
 |Electrical Data| |
 |---------------|-|
 |Maximum Power|10 W|
@@ -17,6 +15,6 @@ Solar power generation comes from four 10W modules, Chinese-build panels from Au
 |Short Circuit Current|0.62 A|
 |External Dimensions|235×335×18 mm|
 |Module Weight|0.9 Kg|
-|Module Efficiency|19.5%|
+|Module Efficiency|19.5%| <img align="right" src="..\images\pi-solar testpanel 10w.jpg" height="225px" width="300px"> 
 
 <img src="../cad/AT-MA10A 10W pv panel v10.png">
