@@ -15,6 +15,7 @@ Solar power generation comes from four 10W modules, Chinese-build panels from Au
 |Short Circuit Current|0.62 A|
 |External Dimensions|235×335×18 mm|
 |Module Weight|0.9 Kg|
-|Module Efficiency|19.5%| <img align="right" src="..\images\pi-solar testpanel 10w.jpg" height="225px" width="300px"> 
+|Module Efficiency|19.5%|
+<img align="right" src="..\images\pi-solar testpanel 10w.jpg" height="225px" width="300px"> 
 
 <img src="../cad/AT-MA10A 10W pv panel v10.png">
