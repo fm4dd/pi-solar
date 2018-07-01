@@ -1,0 +1,8 @@
+:" ##########################################################
+:" ws-vmenu-update.vi: This file is read by setup.sh as input
+:" and below lines add the link for solar.php to the existing
+:" pi-wsXX/web/vmenu.htm file
+:" ##########################################################
+:3s/<\/li>/<\/li>\r    <li><a href="solar.php" title="Solar Power"><span>Solar Power<\/span><\/a><\/li>/
+:wq
+

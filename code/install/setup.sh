@@ -76,10 +76,9 @@ echo "##########################################################"
 echo "# 4. Before we get SW packages, refresh the SW catalogue"
 echo "# and remove any unneeded SW packages."
 echo "##########################################################"
-EXECUTE="sudo apt-get update"
+EXECUTE="sudo apt-get update -qq"
 echo "Updating SW catalogue through [$EXECUTE]. Please wait approx 60s"
-#$EXECUTE | grep Reading
-`$EXECUTE > /dev/null 2&>1`
+`$EXECUTE`
 echo
 
 DELPKGS="libraspberrypi-doc samba-common cifs-utils libtalloc2 libwbclient0"
@@ -334,8 +333,31 @@ if [ ${MYCONFIG[pi-solar-int]} != "none" ]; then
    cp ../web/solar.php $WEBHOME
    echo "chmod 644 $WEBHOME/solar.php"
    chmod 644 $WEBHOME/solar.php
+
+   FIXVI=./ws-vmenu-update.vi
 else
    echo "No pi-weather integration, using $WEBHOME"
+fi
+
+if [ ${MYCONFIG[pi-solar-int]} != "none" ] && [[ ! -f $FIXVI ]]; then
+   echo "Error - cannot find VIM update file [$FIXVMENU]" >&2
+   exit 1
+fi
+
+VMENU=$WEBHOME/vmenu.htm
+GREP=`grep solar.php $VMENU`  
+if [[ $? == 0 ]]; then
+   SOLARLINKFLAG=1
+   echo "Found existing solar.php integration in $VMENU"
+else
+   echo "No solar.php link integration in $VMENU"
+fi
+
+if [ ${MYCONFIG[pi-solar-int]} != "none" ] && [ -z ${SOLARLINKFLAG+x} ]; then
+   echo "Adding solar.php link to $VMENU"
+   # -n disables vi's swap file for speed-up, but no backup exists
+   echo "vi -n -s $FIXVI $VMENU"
+   vi -n -s $FIXVI $VMENU
 fi
 
 echo "Done."
