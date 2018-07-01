@@ -2,7 +2,7 @@
 
 "Off-the-grid" solar power generation project for the Raspberry Pi weather station, consisting of 4x 10W Autumn Technology AT-MA10A pv panels, connected via Victron BlueSolar MPPT 75/10 to Yuasa NPH12-12 battery. Solar power generation and consumption balance monitoring.
 
-<img align="left" src="cad/pi-solar panel-frame front v11.png">
+<img align="left" src="cad/pi-solar panel frame front v11.png">
 
 Battery and charge controller are placed in OBO350 junction box enclosure below the panel array. The panel array angle can be adjusted up to approx 48 degrees.
 
