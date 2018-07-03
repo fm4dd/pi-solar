@@ -20,13 +20,13 @@ Battery and charge controller are placed in a OBO T350 junction box enclosure be
 
 The charge controller selection zeroed in on Victron's BlueSolar and SmartSolar series. The selection criteria besides panel power match-up are compact size, ruggedness, and a data interface with a open specification. The serial line interfacing with a Raspberry Pi worked fine, using a small prototyping circuit board.  Initial software development was mostly done on a NanoPi Neo2 Raspberry clone. The monitoring software was written while powering the controller from a 12V wall plug adapter.  The necessary software can be cloned from the <a href="code">code</a> directory.
 
-<img src="images/pi-solar testpanel 10w.jpg" height="120px" width="160px"><img src="images/pi-solar firmware upgrade.jpg" height="120px" width="160px"><img src="images/pi-solar serial connect1.jpg" height="120px" width="160px"><img src="images/pi-solar test setup1.jpg" height="120px" width="160px"><img src="images/pi-solar raspi-interface2.jpg" height="120px" width="160px">
+<img src="images/pi-solar testpanel 10w.jpg" height="120px" width="160px"> <img src="images/pi-solar firmware upgrade.jpg" height="120px" width="160px"> <img src="images/pi-solar serial connect1.jpg" height="120px" width="160px"> <img src="images/pi-solar test setup1.jpg" height="120px" width="160px"> <img src="images/pi-solar raspi-interface2.png" height="120px" width="160px">
  
 ## Solar Panel Array Frame
 
 The <a href="cad">cad</a> directory has the hardware BOM and CAD drawings for panel frame manufacture, and lists the required components. Design goals for the frame are ruggedness, panel tilt adjustment, wood material, assembly/dissassembly options, and portable parts with a size not exceeding 60 cm length.
 
-<img src="images/pi-solar assembly2.png" height="120px" width="160px"><img src="images/pi-solar assembly3.png" height="120px" width="160px"><img src="images/pi-solar assembly4.png" height="120px" width="160px"><img src="images/pi-solar assembly6.png" height="120px" width="160px"><img src="images/pi-solar assembly7.png" height="120px" width="160px">
+<img src="images/pi-solar assembly2.png" height="120px" width="160px"> <img src="images/pi-solar assembly3.png" height="120px" width="160px"> <img src="images/pi-solar assembly4.png" height="120px" width="160px"> <img src="images/pi-solar assembly6.png" height="120px" width="160px"> <img src="images/pi-solar assembly7.png" height="120px" width="160px">
 
 Panel fitting and wire routing:
 
