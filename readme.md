@@ -50,5 +50,6 @@ The completed frame after assembly. The stand turned out to be insufficiently st
 
 Initial power trials with three panels (30W) showed the need for greater power "buffer" even with a MPPT charger. Poor conditions such as bad weather and obstructive shading reduce the power generation to near zero, and need to be compensated with charging as fast as possible when conditions are right. The initial solar array frame design, envisioning three panels, was reworked to incorporate one more panel for a total of four.
 
-<img align="left" src="images/pi-solar web presentation.jpg">
+<img src="images/pi-solar web presentation.jpg">
+
 3-Panel trials data collection. With panels arranged in series, achieving a higher voltage did not result in better perfomance.
