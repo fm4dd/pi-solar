@@ -18,7 +18,11 @@ Battery and charge controller are placed in a OBO T350 junction box enclosure be
 
 ## Charge Controller monitoring software
 
-The charge controller selection zeroed in on Victron's BlueSolar and SmartSolar series. The selection criteria besides panel power match-up are compact size, ruggedness, and a data interface with a open specification. The serial line interfacing with a Raspberry Pi worked fine, using a small prototyping circuit board.  Initial software development was mostly done on a NanoPi Neo2 Raspberry clone. The monitoring software was written while powering the controller from a 12V wall plug adapter.  The necessary software can be cloned from the <a href="code">code</a> directory.
+The charge controller selection zeroed in on Victron's BlueSolar and SmartSolar series. The selection criteria besides panel power match-up are compact size, ruggedness, and a data interface with a open specification. The serial line interfacing with a Raspberry Pi worked fine, using a small prototyping circuit board.  Initial software development was mostly done on a NanoPi Neo2 Raspberry clone. The monitoring software was written while powering the controller from a 12V wall plug adapter.  
+
+<img align="left" src="images/nighttime-shading example.png">
+
+Charging graph example, showing the panel voltage over 24 hours. The necessary software can be cloned from the <a href="code">code</a> directory.
 
 <img src="images/pi-solar testpanel 10w.jpg" height="120px" width="160px"> <img src="images/pi-solar firmware upgrade.jpg" height="120px" width="160px"> <img src="images/pi-solar serial connect1.jpg" height="120px" width="160px"> <img src="images/pi-solar test setup1.jpg" height="120px" width="160px"> <img src="images/pi-solar raspi-interface2.png" height="120px" width="160px">
  
@@ -43,3 +47,6 @@ The completed frame after assembly. The stand turned out to be insufficiently st
 ## Power observations
 
 Initial power trials with three panels (30W) showed the need for greater power "buffer" even with a MPPT charger. Poor conditions such as bad weather and obstructive shading reduce the power generation to near zero, and need to be compensated with charging as fast as possible when conditions are right. The initial solar array frame design, envisioning three panels, was reworked to incorporate one more panel for a total of four.
+
+<img align="left" src="images/pi-solar web presentation.jpg">
+3-Panel trials data collection. With panels arranged in series, achieving a higher voltage did not result in better perfomance.
