@@ -20,7 +20,7 @@ Battery and charge controller are placed in a OBO T350 junction box enclosure be
 
 The charge controller selection zeroed in on Victron's BlueSolar and SmartSolar series. The selection criteria besides panel power match-up are compact size, ruggedness, and a data interface with a open specification. The serial line interfacing with a Raspberry Pi worked fine, using a small prototyping circuit board.  Initial software development was mostly done on a NanoPi Neo2 Raspberry clone. The monitoring software was written while powering the controller from a 12V wall plug adapter.  
 
-<img align="left" src="images/nighttime-shading example.png">
+<img align="center" src="images/nighttime-shading example.png">
 
 Charging graph example, showing the panel voltage over 24 hours. The necessary software can be cloned from the <a href="code">code</a> directory.
 
