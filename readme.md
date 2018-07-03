@@ -38,13 +38,13 @@ Panel fitting and wire routing:
 
 <img align="left" src="images/pi-solar assembly8.png">
 
-The solar panel wiring has been upgraded to 2mm copper wire, and a 10A10 rectifier bypass diode has been installed.
+The solar panel wiring has been upgraded to 2mm copper wire of equal length, and a 10A10 rectifier bypass diode has been installed.
 
 <img align="left" src="images/pi-solar assembly9.png">
 
 <img align="left" src="images/pi-solar assembly10.png">
 
-The completed frame after assembly. The stand turned out to be insufficiently stable due to the panel weight with a high center of gravity. Four stabilizers (not pictured here) were added afterwards to sufficiently counter the weighti and prevent tipping in high wind situations.
+The completed frame after assembly. The stand turned out to be insufficiently stable due to the panel weight with a high center of gravity. Four stabilizers (not pictured here) were added afterwards to sufficiently counter the weight and prevent tipping in high wind situations.
 
 ## Power observations
 
