@@ -2,7 +2,7 @@
 
 Pi-Solar is a solar power generation project for the Raspberry Pi weather station <a href="https://github.com/fm4dd/pi-weather">Pi-Weather</a>, with the goal to achieve independent and longterm "off-the-grid" operation. This project documents the system design and the solar power generation monitoring software that watches over the electrical energy balance.
 
-<img align="left" src="cad/pi-solar operation1.png">
+<img align="left" src="images/pi-solar operation1.png">
 
 The solar power generator after construction, during the initial burn-in trials.
 
@@ -20,21 +20,25 @@ Battery and charge controller are placed in a OBO T350 junction box enclosure be
 
 The charge controller selection zeroed in on Victron's BlueSolar and SmartSolar series. The selection criteria besides panel power match-up are compact size, ruggedness, and a data interface with a open specification. The serial line interfacing with a Raspberry Pi worked fine, using a small prototyping circuit board.  Initial software development was mostly done on a NanoPi Neo2 Raspberry clone. The monitoring software was written while powering the controller from a 12V wall plug adapter.  The necessary software can be cloned from the <a href="code">code</a> directory.
 
-<img src="images/pi-solar testpanel 10w.jpg" height="120px" width="160px"><img src="images/pi-solar firmware upgrade.jpg" height="120px" width="160px"><img src="images/pi-solar serial connect1.jpg" height="120px" width="160px"><img src="images/pi-solar test setup1.jpg" height="120px" width="160px"><img src="images/pi-solar raspi-interface2.jpg" height="120px" width="160px"><img src="images/pi-solar assembly1.jpg" height="120px" width="160px">
+<img src="images/pi-solar testpanel 10w.jpg" height="120px" width="160px"><img src="images/pi-solar firmware upgrade.jpg" height="120px" width="160px"><img src="images/pi-solar serial connect1.jpg" height="120px" width="160px"><img src="images/pi-solar test setup1.jpg" height="120px" width="160px"><img src="images/pi-solar raspi-interface2.jpg" height="120px" width="160px">
  
 ## Solar Panel Array Frame
 
 The <a href="cad">cad</a> directory has the hardware BOM and CAD drawings for panel frame manufacture, and lists the required components. Design goals for the frame are ruggedness, panel tilt adjustment, wood material, assembly/dissassembly options, and portable parts with a size not exceeding 60 cm length.
 
-<img src="images/pi-solar assembly2.png" height="120px" width="160px"><img src="images/pi-solar assembly3.png" height="120px" width="160px"><img src="images/pi-solar assembly4.png" height="120px" width="160px"><img src="images/pi-solar assembly6.png" height="120px" width="160px"><img src="images/pi-solar assembly7.png" height="120px" width="160px"><img src="images/pi-solar assembly8.jpg" height="120px" width="160px">
+<img src="images/pi-solar assembly2.png" height="120px" width="160px"><img src="images/pi-solar assembly3.png" height="120px" width="160px"><img src="images/pi-solar assembly4.png" height="120px" width="160px"><img src="images/pi-solar assembly6.png" height="120px" width="160px"><img src="images/pi-solar assembly7.png" height="120px" width="160px">
+
+Panel fitting and wire routing:
+
+<img align="left" src="images/pi-solar assembly8.png">
 
 The solar panel wiring has been upgraded to 2mm copper wire, and a 10A10 rectifier bypass diode has been installed.
 
 <img align="left" src="images/pi-solar assembly9.png">
 
-The completed frame after assembly. The stand turned out to be insufficiently stable due to the panel weight with a high center of gravity. Four stabilizers (not pictured here) were added afterwards to sufficiently counter the weighti and prevent tipping in high wind situations.
-
 <img align="left" src="images/pi-solar assembly10.png">
+
+The completed frame after assembly. The stand turned out to be insufficiently stable due to the panel weight with a high center of gravity. Four stabilizers (not pictured here) were added afterwards to sufficiently counter the weighti and prevent tipping in high wind situations.
 
 ## Power observations
 
