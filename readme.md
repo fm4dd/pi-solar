@@ -1,23 +1,41 @@
 # Pi-Solar
 
-"Off-the-grid" solar power generation project for the Raspberry Pi weather station, consisting of 4x 10W Autumn Technology AT-MA10A pv panels, connected via Victron BlueSolar MPPT 75/10 to Yuasa NPH12-12 battery. Solar power generation and consumption balance monitoring.
+Pi-Solar is a solar power generation project for the Raspberry Pi weather station <a href="https://github.com/fm4dd/pi-weather">Pi-Weather</a>, with the goal to achieve independent and longterm "off-the-grid" operation. This project documents the system design and the solar power generation monitoring software that watches over the electrical energy balance.
+
+<img align="left" src="cad/pi-solar operation1.png">
+
+The solar power generator after construction, during the initial burn-in trials.
+
+## Design
+
+The solar panel array has four 10W Autumn Technology AT-MA10A pv panels, connected via Victron BlueSolar MPPT 75/10 charge controller to a Yuasa NPH12-12 deep-cycle battery.  The solar panel array angle can be adjusted up to approx 48 degrees.
 
 <img align="left" src="cad/pi-solar panel frame front v11.png">
 
-Battery and charge controller are placed in OBO350 junction box enclosure below the panel array. The panel array angle can be adjusted up to approx 48 degrees.
+Battery and charge controller are placed in a OBO T350 junction box enclosure below the panel array. There is space for a second battery to enhance the capacity and increase the bad weather safety margin. 
 
 <img align="left" src="cad/pi-solar panel frame back v11.png">
 
-## Build Pictures
+## Charge Controller monitoring software
 
-<img src="images/pi-solar testpanel 10w.jpg" height="120px" width="160px"><img src="images/pi-solar firmware upgrade.jpg" height="120px" width="160px"><img src="images/pi-solar serial connect1.jpg" height="120px" width="160px"><img src="images/pi-solar test setup1.jpg" height="120px" width="160px">
+The charge controller selection zeroed in on Victron's BlueSolar and SmartSolar series. The selection criteria besides panel power match-up are compact size, ruggedness, and a data interface with a open specification. The serial line interfacing with a Raspberry Pi worked fine, using a small prototyping circuit board.  Initial software development was mostly done on a NanoPi Neo2 Raspberry clone. The monitoring software was written while powering the controller from a 12V wall plug adapter.  The necessary software can be cloned from the <a href="code">code</a> directory.
+
+<img src="images/pi-solar testpanel 10w.jpg" height="120px" width="160px"><img src="images/pi-solar firmware upgrade.jpg" height="120px" width="160px"><img src="images/pi-solar serial connect1.jpg" height="120px" width="160px"><img src="images/pi-solar test setup1.jpg" height="120px" width="160px"><img src="images/pi-solar raspi-interface2.jpg" height="120px" width="160px"><img src="images/pi-solar assembly1.jpg" height="120px" width="160px">
  
-Work in progress
+## Solar Panel Array Frame
 
-## CAD drawings
+The <a href="cad">cad</a> directory has the hardware BOM and CAD drawings for panel frame manufacture, and lists the required components. Design goals for the frame are ruggedness, panel tilt adjustment, wood material, assembly/dissassembly options, and portable parts with a size not exceeding 60 cm length.
 
-The <a href="cad">cad</a> directory has the hardware BOM and CAD drawings to build the panel frame and lists the required component.
+<img src="images/pi-solar assembly2.png" height="120px" width="160px"><img src="images/pi-solar assembly3.png" height="120px" width="160px"><img src="images/pi-solar assembly4.png" height="120px" width="160px"><img src="images/pi-solar assembly6.png" height="120px" width="160px"><img src="images/pi-solar assembly7.png" height="120px" width="160px"><img src="images/pi-solar assembly8.jpg" height="120px" width="160px">
 
-## Monitoring Software
+The solar panel wiring has been upgraded to 2mm copper wire, and a 10A10 rectifier bypass diode has been installed.
 
-The necessary software can be cloned from the <a href="code">code</a> directory.
+<img align="left" src="images/pi-solar assembly9.png">
+
+The completed frame after assembly. The stand turned out to be insufficiently stable due to the panel weight with a high center of gravity. Four stabilizers (not pictured here) were added afterwards to sufficiently counter the weighti and prevent tipping in high wind situations.
+
+<img align="left" src="images/pi-solar assembly10.png">
+
+## Power observations
+
+Initial power trials with three panels (30W) showed the need for greater power "buffer" even with a MPPT charger. Poor conditions such as bad weather and obstructive shading reduce the power generation to near zero, and need to be compensated with charging as fast as possible when conditions are right. The initial solar array frame design, envisioning three panels, was reworked to incorporate one more panel for a total of four.
