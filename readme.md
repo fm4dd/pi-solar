@@ -6,6 +6,10 @@ Pi-Solar is a solar power generation project for the Raspberry Pi weather statio
 
 The solar power generator after construction, during the initial burn-in trials.
 
+## Live Power Status
+
+http://weather.fm4dd.com/pi-ws01/sloar.php
+
 ## Design
 
 The solar panel array has four 10W Autumn Technology AT-MA10A pv panels, connected via Victron BlueSolar MPPT 75/10 charge controller to a Yuasa NPH12-12 deep-cycle battery.  The solar panel array angle can be adjusted up to approx 48 degrees.
