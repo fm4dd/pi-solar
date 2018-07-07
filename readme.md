@@ -8,7 +8,7 @@ The solar power generator after construction, during the initial burn-in trials.
 
 ## Live Power Status
 
-http://weather.fm4dd.com/pi-ws01/sloar.php
+http://weather.fm4dd.com/pi-ws01/solar.php
 
 ## Design
 
