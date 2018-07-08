@@ -231,6 +231,7 @@ if [ ! -f $MVBATPNG ] || [[ "$FILEAGE" < "$midnight" ]]; then
   --width=619 \
   --height=77 \
   --border=1  \
+  --alt-y-grid \
   --color SHADEA#000000 \
   --color SHADEB#000000 \
   DEF:vbat1=$RRD:vbat:AVERAGE \
@@ -319,7 +320,8 @@ if [ ! -f $YVBATPNG ] || [[ "$FILEAGE" < "$midnight" ]]; then
   --x-grid MONTH:1:YEAR:1:MONTH:1:2592000:%b \
   --title='Battery Voltage, Yearly View' \
   --alt-autoscale \
-  --lower-limit=12.0 \
+  --lower-limit=11.0 \
+  --left-axis-format "%2.1lf" \
   --width=619 \
   --height=77 \
   --border=1  \
