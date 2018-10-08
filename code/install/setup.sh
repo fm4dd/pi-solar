@@ -339,6 +339,13 @@ else
    echo "No pi-weather integration, using $WEBHOME"
 fi
 
+echo "Done."
+echo
+
+echo "##########################################################"
+echo "# 17. For WS integration, update vmenu.htm with solar.php "
+echo "##########################################################"
+
 if [ ${MYCONFIG[pi-solar-int]} != "none" ] && [[ ! -f $FIXVI ]]; then
    echo "Error - cannot find VIM update file [$FIXVMENU]" >&2
    exit 1
@@ -346,6 +353,10 @@ fi
 
 VMENU=$WEBHOME/vmenu.htm
 GREP=`grep solar.php $VMENU`  
+# ---------------------------------------------------------------
+# This will catch previous install, and also catches 'local'
+# mode if we don't integrate and already have those entries
+# ---------------------------------------------------------------
 if [[ $? == 0 ]]; then
    SOLARLINKFLAG=1
    echo "Found existing solar.php integration in $VMENU"
@@ -364,7 +375,41 @@ echo "Done."
 echo
 
 echo "##########################################################"
-echo "# 17. Create the SFTP batch files"
+echo "# 18. For WS integration add solar-data.log to showlog.php"
+echo "##########################################################"
+FIXVI=./ws-showlog-update.vi
+
+if [ ${MYCONFIG[pi-solar-int]} != "none" ] && [[ ! -f $FIXVI ]]; then
+   echo "Error - cannot find VIM update file [$FIXVMENU]" >&2
+   exit 1
+fi
+
+SHOWLOG=$WEBHOME/showlog.php
+GREP=`grep solar-data.log $SHOWLOG`
+# ---------------------------------------------------------------
+# This will catch previous install, and also catches 'local'
+# mode if we don't integrate and already have those entries
+# ---------------------------------------------------------------
+if [[ $? == 0 ]]; then
+   SOLARLINKFLAG=1
+   echo "Found existing solar-data.log integration in $SHOWLOG"
+else
+   unset SOLARLINKFLAG
+   echo "No solar-data.log integration in $SHOWLOG"
+fi
+
+if [ ${MYCONFIG[pi-solar-int]} != "none" ] && [ -z ${SOLARLINKFLAG+x} ]; then
+   echo "Adding solar-data.log entry to $SHOWLOG"
+   # -n disables vi's swap file for speed-up, but no backup exists
+   echo "vi -n -s $FIXVI $SHOWLOG"
+   vi -n -s $FIXVI $SHOWLOG
+fi
+
+echo "Done."
+echo
+
+echo "##########################################################"
+echo "# 19. Create the SFTP batch files"
 echo "##########################################################"
 if [ ${MYCONFIG[pi-solar-int]} != "none" ]; then
    echo "Create the SFTP batch file for solar data upload"
@@ -390,7 +435,7 @@ echo "Done."
 echo
 
 echo "##########################################################"
-echo "# 18. Create crontab entry for RRD XML file upload"
+echo "# 20. Create crontab entry for RRD XML file upload"
 echo "##########################################################"
 
 if [ ${MYCONFIG[pi-solar-int]} == "none" ]; then

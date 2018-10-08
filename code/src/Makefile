@@ -6,8 +6,8 @@ ifndef BINDIR
 	BINDIR="${pi-solar-dir}/bin"
 endif
 
-ALLBIN=getvictron daytcalc pvpower
-ALLSH=solar-rrd.sh solar-data.sh solar-night.sh
+ALLBIN=getvictron daytcalc pvpower getspa
+ALLSH=solar-rrd.sh solar-data.sh solar-night.sh spa-data.sh
 
 all: ${ALLBIN}
 
@@ -38,3 +38,6 @@ daytcalc: daytcalc.o
 
 pvpower: pvpower.o
 	$(CC) pvpower.o -o pvpower -lrrd
+
+getspa: spa.o getspa.o
+	$(CC) spa.o getspa.o -o getspa -lm

@@ -97,7 +97,7 @@ fi
 ##########################################################
 TIME=`echo $RRDUPDATE | cut -d ":" -f 1`
 if [ "$TIME" == "" ] || [ "$TIME" == "Error" ]; then
-  echo "solar-data.sh: Error getting timestamp from sensor data"
+  echo "solar-data.sh: Error getting timestamp from getvictron RRD output"
   exit
 fi
 echo "solar-data.sh: Got timestamp from getvictron RRD output: [$TIME]"
@@ -156,5 +156,17 @@ if [ -f $VHOME/etc/sftp-dat.bat ]; then
    sftp -q -b $VHOME/etc/sftp-dat.bat $SFTPDEST
 else
    echo "solar-data.sh: Cannot find $VHOME/etc/sftp-dat.bat"
+fi
+
+##########################################################
+# 6. For solar tracking, call spa-data.sh with timestamp
+# as single argument
+##########################################################
+SPA="$VHOME/bin/spa-data.sh"
+if [ -f $SPA ]; then
+   echo "solar-data.sh: calling $SPA"
+   $SPA "$TIME"
+else
+   echo "solar-data.sh: Cannot find $SPA"
 fi
 ############# end of solar-data.sh ########################
