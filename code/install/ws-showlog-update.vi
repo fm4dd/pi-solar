@@ -1,0 +1,8 @@
+:" ##########################################################
+:" ws-showlog-update.vi: setup.sh vi reads this file as input
+:" below lines add the entry for solar.php to the existing
+:" pi-wsXX/web/showlog.php file
+:" ##########################################################
+:50,55s/  );/    "\.\.\/var\/solar-data\.log",\r  );/
+:wq
+
