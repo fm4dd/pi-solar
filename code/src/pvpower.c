@@ -223,8 +223,8 @@ void year_datahtml(int year, time_t ts){
        * The set size is 12 days * 24 hrs (60 mins) * 6 data sources:  *
        * pv watt=ds_namv[3], bat volts=ds_namv[0], bat cur=ds_namv[1]  *
        * ------------------------------------------------------------- */
-      double ppvday = 0;
-      double balday = 0;
+      double ppvday = 0.0;
+      double balday = 0.0;
 
       for(j=0; j<(days*ds_cnt); j=j+ds_cnt) {
          k++;
@@ -236,21 +236,25 @@ void year_datahtml(int year, time_t ts){
       }
 
       /* print the solar power values before processing the next day */
-      if(ppvday != 0) {
-         //ppvday = ppvday / 24; /* divide through 24 to get Wh */
-         if(ppvday >= 1000)
-            fprintf(html, "   <td class=\"datacell\">%.1f&thinsp;KW", ppvday);
+      if(ppvday >= 0.0) {
+         /* Highlight days with a negative balance */
+         if(balday > 0.0) fprintf(html, "   <td class=\"datacell\">");
+         else fprintf(html, "   <td class=\"minuscell\">");
+
+         /* Print the daily power generation */
+         if(ppvday >= 1000.0)
+            fprintf(html, "%.1f&thinsp;KW", ppvday/1000.0);
          else
-            fprintf(html, "   <td class=\"datacell\">%.1f&thinsp;W", ppvday);
+            fprintf(html, "%.1f&thinsp;W", ppvday);
+
+         fprintf(html, " <br> ");
+         /* Print the daily power balance */
+         if((balday >= 1000.0) || (balday <= -1000.0))
+            fprintf(html, "%+.1f&thinsp;KW</td>\n", balday/1000.0);
+         else
+            fprintf(html, "%+.1f&thinsp;W</td>\n", balday);
       }
-      else  fprintf(html, "   <td class=\"emptycell\">N/A");
-
-      fprintf(html, " <br> ");
-
-      if((balday >= 1000) || (balday <= -1000))
-         fprintf(html, "%+.1f&thinsp;KW</td>\n", balday);
-      else
-         fprintf(html, "%+.1f&thinsp;W</td>\n", balday);
+      else  fprintf(html, "   <td class=\"emptycell\">N/A</td>\n");
    }
 }
 
@@ -353,8 +357,8 @@ void month_datahtml(int mon, int year, time_t ts){
        * The set size is 12 days * 24 hrs (60 mins) * 6 data sources:  *
        * pv watt=ds_namv[3], bat volts=ds_namv[0], bat cur=ds_namv[1]  *
        * ------------------------------------------------------------- */
-      double ppvday = 0;
-      double balday = 0;
+      double ppvday = 0.0;
+      double balday = 0.0;
 
       for(j=0; j<(days*ds_cnt); j=j+ds_cnt) {
          k++;
@@ -366,21 +370,24 @@ void month_datahtml(int mon, int year, time_t ts){
       }
 
       /* print the solar power values before processing the next day */
-      if(ppvday != 0) {
-         //ppvday = ppvday / 24; /* divide through 24 to get Wh */
-         if(ppvday >= 1000)
-            fprintf(html, "   <td class=\"datacell\">%.1f&thinsp;KW", ppvday);
+      if(ppvday >= 0.0) {
+         /* Highlight days with a negative balance */
+         if(balday > 0.0) fprintf(html, "   <td class=\"datacell\">");
+         else fprintf(html, "   <td class=\"minuscell\">");
+
+         if(ppvday >= 1000.0)
+            fprintf(html, "%.1f&thinsp;KW", ppvday/1000.0);
          else
-            fprintf(html, "   <td class=\"datacell\">%.1f&thinsp;W", ppvday);
+            fprintf(html, "%.1f&thinsp;W", ppvday);
+
+         fprintf(html, " <br> ");
+
+         if((balday >= 1000.0) || (balday <= -1000.0))
+            fprintf(html, "%+.1f&thinsp;KW</td>\n", balday/1000.0);
+         else
+            fprintf(html, "%+.1f&thinsp;W</td>\n", balday);
       }
-      else  fprintf(html, "   <td class=\"emptycell\">N/A");
-
-      fprintf(html, " <br> ");
-
-      if((balday >= 1000) || (balday <= -1000))
-         fprintf(html, "%+.1f&thinsp;KW</td>\n", balday);
-      else
-         fprintf(html, "%+.1f&thinsp;W</td>\n", balday);
+      else  fprintf(html, "   <td class=\"emptycell\">N/A</td>\n");
    }
 }
 
@@ -452,8 +459,8 @@ void day_datahtml(time_t tsnow) {
    fprintf(html, "<tr>\n");
 
    int i, j=0, k=0;
-      double ppvday = 0;
-      double balday = 0;
+   double ppvday = 0.0;
+   double balday = 0.0;
       /* ------------------------------------------------------------- *
        * Go through the returned dataset. For PPV, create sum of daily *
        * power intake, divide by 24 to get the (Kilo) Watt hour value. *
@@ -475,26 +482,28 @@ void day_datahtml(time_t tsnow) {
          if(verbose == 1) printf("Debug: day [%2d] %s [%.2f] balance [%.2f]\n",
                                k-1, ds_namv[3], ppvday, balday);
          /* print the solar power values before processing the next day */
-         if(ppvday != 0) {
-            //ppvday = ppvday / 24; /* divide through 24 to get Wh */
-            if(ppvday >= 1000)
-               fprintf(html, "   <td class=\"datacell\">%.1f&thinsp;KW", ppvday);
+         if(ppvday >= 0.0) {
+            /* Highlight days with a negative balance */
+            if(balday > 0.0) fprintf(html, "   <td class=\"datacell\">");
+            else fprintf(html, "   <td class=\"minuscell\">");
+
+            if(ppvday >= 1000.0)
+               fprintf(html, "%.1f&thinsp;KW", ppvday/1000.0);
             else
-               fprintf(html, "   <td class=\"datacell\">%.1f&thinsp;W", ppvday);
+               fprintf(html, "%.1f&thinsp;W", ppvday);
+
+            fprintf(html, " <br> ");
+            /* print the balance values before processing the next day */
+            if((balday >= 1000.0) || (balday <= -1000.0))
+               fprintf(html, "%+.1f&thinsp;KW</td>\n", balday/1000.0);
+            else
+               fprintf(html, "%+.1f&thinsp;W</td>\n", balday);
          }
-         else  fprintf(html, "   <td class=\"emptycell\">N/A");
-
-         fprintf(html, " <br> ");
-
-         /* print the balance values before processing the next day */
-         if((balday >= 1000) || (balday <= -1000))
-            fprintf(html, "%+.1f&thinsp;KW</td>\n", balday);
-         else
-            fprintf(html, "%+.1f&thinsp;W</td>\n", balday);
+         else  fprintf(html, "   <td class=\"emptycell\">N/A</td>\n");
 
          /* Reset the values before processing the next day */
-         ppvday = 0;
-         balday = 0;
+         ppvday = 0.0;
+         balday = 0.0;
       }
    }
    if(verbose == 1) printf("Debug: Finished html value row\n");

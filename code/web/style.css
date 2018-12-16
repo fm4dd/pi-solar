@@ -313,6 +313,15 @@ body a:visited {
     border: 1px solid #000000;
 }
 
+#content .minuscell {
+    font-size: 1em;
+    width: 50px;
+    background-color: #E9E9E9;
+    padding-top: 4px;
+    text-align: right;
+    border: 1px solid #000000;
+}
+
 #content .datacell {
     font-size: 1em;
     width: 50px;
